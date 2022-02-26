@@ -43,6 +43,7 @@ const inputControllers = {
       document.querySelector(input).value = "";
       document.querySelector(span).innerHTML = "";
     });
+    document.getElementById("txtMaSV").disabled = false;
   },
   clearSpan: () => {
     const arr = [

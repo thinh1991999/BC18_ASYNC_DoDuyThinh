@@ -2,7 +2,7 @@ let validator = {
   kiemTraSo: function (value, idErr) {
     errEl = document.getElementById(idErr);
     let parten = new RegExp("^(0|[1-9][0-9]*)$");
-    if (parten.test(value)) {
+    if (parten.test(value.trim())) {
       return true;
     } else {
       errEl.innerText = "Trường này phải điền số dương";
@@ -13,7 +13,7 @@ let validator = {
     errEl = document.getElementById(idErr);
 
     let parten = new RegExp("[A-Za-z]");
-    if (parten.test(value)) {
+    if (parten.test(value.trim())) {
       return true;
     } else {
       errEl.innerText = "Trường này phải điền chữ";
@@ -38,7 +38,7 @@ let validator = {
     errEl = document.getElementById(idErr);
     let parten =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if (!value.match(parten)) {
+    if (!value.trim().match(parten)) {
       errEl.innerText = "Trường này phải điền email";
       return false;
     }

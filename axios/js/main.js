@@ -15,6 +15,7 @@ let renderTaleDSSV = () => {
 };
 renderTaleDSSV();
 document.getElementById("btn-add").addEventListener("click", function () {
+  document.getElementById("txtMaSV").disabled = false;
   document.querySelector("#txtSearch").value = "";
   const mess = document.querySelector("#mess");
   mess.innerHTML = "";
@@ -74,6 +75,7 @@ function suaSV(id) {
   sinhVienService
     .layChiTietSinhVien(id)
     .then((res) => {
+      maSV.disabled = true;
       const { id, name, email, toan, ly, hoa } = res.data;
       maSV.value = id;
       tenSV.value = name;
@@ -105,6 +107,7 @@ function capNhatSV() {
     sinhVienService
       .capNhatSinhVien(svOject.id, svOject)
       .then((res) => {
+        document.getElementById("txtMaSV").disabled = false;
         mess.classList.add("text-success");
         mess.classList.remove("text-danger");
         mess.innerText = "Cập nhật thành công";
